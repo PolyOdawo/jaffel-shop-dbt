@@ -1,8 +1,8 @@
 with customers as (
-    select * from {{ ref ('stg_jaffel_shop__customers')}}
+    select * from {{ ref ('stg_jaffel_shop__customers') }}
 ),
 orders as (
-    select * from {{ ref ('fct_orders')}}
+    select * from {{ ref ('fct_orders') }}
 ),
 customer_orders as (
     select
@@ -27,6 +27,7 @@ customer_orders as (
     left join customer_orders using (customer_id)
 )
 select * from final
+
 
 /*
 {{ config(materialized='view') }}
